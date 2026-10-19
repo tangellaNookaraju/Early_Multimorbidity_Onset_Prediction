@@ -36,7 +36,7 @@ export default function Profile() {
         setError('');
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.put('http://localhost:8000/me', formData, {
+            const response = await axios.put(import.meta.env.VITE_API_URL + '/me', formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setUser(response.data);
@@ -153,3 +153,4 @@ export default function Profile() {
         </div>
     );
 }
+

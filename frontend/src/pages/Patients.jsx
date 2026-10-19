@@ -19,7 +19,7 @@ export default function Patients() {
 
     const fetchPatients = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/patients');
+            const response = await axios.get(import.meta.env.VITE_API_URL + '/patients');
             setPatients(response.data);
         } catch (error) {
             console.error("Error fetching patients:", error);
@@ -29,7 +29,7 @@ export default function Patients() {
     const handleAddPatient = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8000/patients', {
+            await axios.post(import.meta.env.VITE_API_URL + '/patients', {
                 ...newPatient,
                 age: parseInt(newPatient.age),
                 bmi: parseFloat(newPatient.bmi)
@@ -213,3 +213,4 @@ export default function Patients() {
         </div>
     );
 }
+

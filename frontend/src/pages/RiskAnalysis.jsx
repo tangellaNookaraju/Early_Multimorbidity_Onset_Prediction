@@ -27,7 +27,7 @@ export default function RiskAnalysis() {
 
     const fetchPatients = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/patients');
+            const response = await axios.get(import.meta.env.VITE_API_URL + '/patients');
             setPatients(response.data);
         } catch (error) {
             console.error("Error fetching patients:", error);
@@ -74,7 +74,7 @@ export default function RiskAnalysis() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://localhost:8000/predict', formData, {
+            const response = await axios.post(import.meta.env.VITE_API_URL + '/predict', formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -273,3 +273,4 @@ export default function RiskAnalysis() {
         </div>
     );
 }
+

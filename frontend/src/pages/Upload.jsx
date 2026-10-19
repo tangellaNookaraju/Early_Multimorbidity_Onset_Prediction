@@ -14,7 +14,7 @@ export default function Upload() {
 
     const fetchUploads = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/uploads', {
+            const response = await axios.get(import.meta.env.VITE_API_URL + '/uploads', {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             setUploads(response.data);
@@ -33,7 +33,7 @@ export default function Upload() {
         formData.append('file', file);
 
         try {
-            await axios.post('http://localhost:8000/upload', formData, {
+            await axios.post(import.meta.env.VITE_API_URL + '/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -112,3 +112,4 @@ export default function Upload() {
         </div>
     );
 }
+

@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 
     const fetchUser = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/me');
+            const response = await axios.get(import.meta.env.VITE_API_URL + '/me');
             setUser(response.data);
         } catch (error) {
             console.error("Error fetching user:", error);
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
         formData.append('password', password);
 
         try {
-            const response = await axios.post('http://localhost:8000/login', formData);
+            const response = await axios.post(import.meta.env.VITE_API_URL + '/login', formData);
             const newToken = response.data.access_token;
             localStorage.setItem('token', newToken);
             setToken(newToken);
@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (fullName, email, password) => {
         try {
-            const response = await axios.post('http://localhost:8000/register', {
+            const response = await axios.post(import.meta.env.VITE_API_URL + '/register', {
                 full_name: fullName,
                 email,
                 password
@@ -86,3 +86,4 @@ export const AuthProvider = ({ children }) => {
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
+

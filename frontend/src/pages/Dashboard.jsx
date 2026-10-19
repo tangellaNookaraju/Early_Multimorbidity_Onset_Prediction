@@ -55,7 +55,7 @@ export default function Dashboard() {
     useEffect(() => {
         const fetchAnalyses = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/analyses');
+                const response = await axios.get(import.meta.env.VITE_API_URL + '/analyses');
                 const data = response.data;
                 setAnalyses(data);
 
@@ -248,3 +248,4 @@ export default function Dashboard() {
         </div>
     );
 }
+
