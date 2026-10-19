@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pandas
+scikit-learn
+xgboost
+python-multipart
+passlib[bcrypt]
+python-jose[cryptography]
+sqlalchemy
+pydantic[email]
+joblib
+numpy
+motor
+beanie
+pymongo[srv]

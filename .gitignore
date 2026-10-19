@@ -1,0 +1,13 @@
+venv_backend/
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+node_modules/
+dist/
+build/
+/Early_Multimorbidity_Onset_Prediction/
+/backend/test_db_debug.py
+
+.vscode/
